@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="paused" default="false"/>
+<arg name="gazebo_gui" default="true"/>
+<arg name="urdf_path" default="$(find barrett_moveit_v2)/urdf/barrett_model.urdf"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+  </include>
+  
+<param name="barrett_moveit_v2" command="$(find xacro)/xacro --inorder '$(find barrett_moveit_v2)/urdf/barrett_model.urdf'"/>
+  
+<arg name="x" default="0"/>
+<arg name="y" default="0"/>
+<arg name="z" default="0"/>
+    
+    <node name="wam_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param barrett_moveit_v2 -model wam -x $(arg x) -y $(arg y) -z $(arg z)" />
+  <include file="$(find barrett_moveit_v2)/launch/ros_controllers.launch"/> 
+
+</launch>

@@ -1,0 +1,32 @@
+wam:
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+bh_j11_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/base_yaw_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j21_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/shoulder_pitch_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j22_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/shoulder_yaw_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j31_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/elbow_pitch_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j32_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/wrist_yaw_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j33_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/wrist_pitch_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
+bh_j41_position_controller:
+  type: position_controllers/JointPositionController
+  joint: wam/palm_yaw_joint
+  pid: {p: 100.0, i: 10.0, d: 1.0}
